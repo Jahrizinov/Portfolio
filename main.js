@@ -1,7 +1,10 @@
+import './css/style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as bootstrap from 'bootstrap';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+// ... rest van je imports
 
 // =============================================
 // DOMAIN WARNING — Enter button logic
