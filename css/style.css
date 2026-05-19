@@ -3,17 +3,17 @@
    ======================================== */
 
 :root {
-    --red: #cc0000;
-    --red-bright: #ff1a1a;
-    --red-glow: rgba(204, 0, 0, 0.4);
-    --red-dim: rgba(204, 0, 0, 0.15);
+    --red: #ff4444;
+    --red-bright: #ff6666;
+    --red-glow: rgba(255, 68, 68, 0.3);
+    --red-dim: rgba(255, 68, 68, 0.1);
     --black: #000000;
-    --black-deep: #050505;
-    --black-card: #0a0a0a;
-    --black-surface: #111111;
-    --white: #ffffff;
-    --gray: #888888;
-    --gray-dim: #333333;
+    --black-deep: #1a1a1a;
+    --black-card: #2a2a2a;
+    --black-surface: #222222;
+    --white: #f0f0f0;
+    --gray: #aaaaaa;
+    --gray-dim: #444444;
     --font-display: 'Cinzel Decorative', serif;
     --font-body: 'Rajdhani', sans-serif;
     --font-mono: 'Share Tech Mono', monospace;
@@ -30,28 +30,14 @@ html {
 }
 
 body {
-    background: var(--black-deep);
-    color: var(--white);
+    background: #1a1a1a;
+    color: #f0f0f0;
     font-family: var(--font-body);
     overflow-x: hidden;
     cursor: crosshair;
-}
-
-body.dark-mode {
-  --red: #ff4444;
-    --red-bright: #ff6666;
-    --red-glow: rgba(255, 68, 68, 0.3);
-    --red-dim: rgba(255, 68, 68, 0.1);
-    --black-deep: #1a1a1a;
-    --black-card: #2a2a2a;
-    --black-surface: #222222;
-    --white: #f0f0f0;
-    --gray: #aaaaaa;
-    --gray-dim: #444444;
-    background: #1a1a1a;
-    color: #ffffff;
     
 }
+
 
 
 
@@ -64,6 +50,7 @@ body.dark-mode {
     height: 100%;
     z-index: 0;
     pointer-events: none;
+    background: transparent;
 }
 
 /* === DOMAIN WARNING OVERLAY === */
@@ -352,12 +339,12 @@ input:checked + .toggle-slider::before {
 .nav-link {
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--gray);
     text-decoration: none;
     letter-spacing: 0.15em;
     transition: color 0.3s ease;
     position: relative;
-    color: #880000;
+     color: var(--white)!important;
+
 }
 
 .nav-link::after {
@@ -371,14 +358,9 @@ input:checked + .toggle-slider::before {
     transition: width 0.3s ease;
 }
 
-/* .nav-link:hover {
-    color: var(--red-bright);
-} */
-
-/* .nav-link:hover,
-.nav-link.active {
-    color: #ff1a1a; /* lichter rood als active */
-/* } */ 
+.nav-link:hover {
+    color: var(--red);
+}
 
 .nav-link:hover::after {
     width: 100%;

@@ -137,11 +137,12 @@ bgCamera.position.z = 5;
 
 const bgRenderer = new THREE.WebGLRenderer({
     canvas: bgCanvas,
-    alpha: true,
+    alpha: false,
     antialias: true
 });
 bgRenderer.setPixelRatio(window.devicePixelRatio);
 bgRenderer.setSize(window.innerWidth, window.innerHeight);
+bgRenderer.setClearColor(0x1a1a1a, 1);
 
 // Particles
 const particleGeometry = new THREE.BufferGeometry();
@@ -187,115 +188,115 @@ window.addEventListener('resize', () => {
 // =============================================
 // MAHORAGA WHEEL SCENE — Hero canvas
 // =============================================
-let wheelScene, wheelCamera, wheelRenderer, wheelModel, wheelMixer;
+// let wheelScene, wheelCamera, wheelRenderer, wheelModel, wheelMixer;
 
-function initWheelScene() {
-    const wheelCanvas = document.getElementById('wheel-canvas');
-    wheelScene = new THREE.Scene();
+// function initWheelScene() {
+//     const wheelCanvas = document.getElementById('wheel-canvas');
+//     wheelScene = new THREE.Scene();
 
-    wheelCamera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
-    wheelCamera.position.set(0, 0, 4);
+//     wheelCamera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+//     wheelCamera.position.set(0, 0, 4);
 
-    wheelRenderer = new THREE.WebGLRenderer({
-        canvas: wheelCanvas,
-        alpha: true,
-        antialias: true
-    });
-    wheelRenderer.setPixelRatio(window.devicePixelRatio);
-    wheelRenderer.setSize(
-        wheelCanvas.parentElement.clientWidth,
-        wheelCanvas.parentElement.clientHeight
-    );
+//     wheelRenderer = new THREE.WebGLRenderer({
+//         canvas: wheelCanvas,
+//         alpha: true,
+//         antialias: true
+//     });
+//     wheelRenderer.setPixelRatio(window.devicePixelRatio);
+//     wheelRenderer.setSize(
+//         wheelCanvas.parentElement.clientWidth,
+//         wheelCanvas.parentElement.clientHeight
+//     );
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-    wheelScene.add(ambientLight);
+//     // Lighting
+//     const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+//     wheelScene.add(ambientLight);
 
-    const redLight = new THREE.PointLight(0xcc0000, 3, 10);
-    redLight.position.set(2, 2, 2);
-    wheelScene.add(redLight);
+//     const redLight = new THREE.PointLight(0xcc0000, 3, 10);
+//     redLight.position.set(2, 2, 2);
+//     wheelScene.add(redLight);
 
-    const redLight2 = new THREE.PointLight(0xff1a1a, 2, 8);
-    redLight2.position.set(-2, -1, 1);
-    wheelScene.add(redLight2);
+//     const redLight2 = new THREE.PointLight(0xff1a1a, 2, 8);
+//     redLight2.position.set(-2, -1, 1);
+//     wheelScene.add(redLight2);
 
-    const rimLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    rimLight.position.set(0, 5, -3);
-    wheelScene.add(rimLight);
+//     const rimLight = new THREE.DirectionalLight(0xffffff, 0.5);
+//     rimLight.position.set(0, 5, -3);
+//     wheelScene.add(rimLight);
 
-    // Load GLB model
-    const loader = new GLTFLoader();
-    loader.load(
-        '/assets/models/mahoraga.glb',
-        (gltf) => {
-            wheelModel = gltf.scene;
+//     // Load GLB model
+//     const loader = new GLTFLoader();
+//     loader.load(
+//         '/assets/models/mahoraga.glb',
+//         (gltf) => {
+//             wheelModel = gltf.scene;
 
-            // Center and scale the model
-            const box = new THREE.Box3().setFromObject(wheelModel);
-            const center = box.getCenter(new THREE.Vector3());
-            const size = box.getSize(new THREE.Vector3());
-            const maxDim = Math.max(size.x, size.y, size.z);
-            const scale = 2.5 / maxDim;
+//             // Center and scale the model
+//             const box = new THREE.Box3().setFromObject(wheelModel);
+//             const center = box.getCenter(new THREE.Vector3());
+//             const size = box.getSize(new THREE.Vector3());
+//             const maxDim = Math.max(size.x, size.y, size.z);
+//             const scale = 2.5 / maxDim;
 
-            wheelModel.position.sub(center.multiplyScalar(scale));
-            wheelModel.scale.setScalar(scale);
+//             wheelModel.position.sub(center.multiplyScalar(scale));
+//             wheelModel.scale.setScalar(scale);
 
-            // Apply red tint to all materials
-            wheelModel.traverse((child) => {
-                if (child.isMesh) {
-                    child.material = new THREE.MeshStandardMaterial({
-                        color: 0x1a0000,
-                        emissive: 0xcc0000,
-                        emissiveIntensity: 0.3,
-                        metalness: 0.8,
-                        roughness: 0.2,
-                    });
-                }
-            });
+//             // Apply red tint to all materials
+//             wheelModel.traverse((child) => {
+//                 if (child.isMesh) {
+//                     child.material = new THREE.MeshStandardMaterial({
+//                         color: 0x1a0000,
+//                         emissive: 0xcc0000,
+//                         emissiveIntensity: 0.3,
+//                         metalness: 0.8,
+//                         roughness: 0.2,
+//                     });
+//                 }
+//             });
 
-            wheelScene.add(wheelModel);
+//             wheelScene.add(wheelModel);
 
-            // Play animation if available
-            if (gltf.animations && gltf.animations.length > 0) {
-                wheelMixer = new THREE.AnimationMixer(wheelModel);
-                const action = wheelMixer.clipAction(gltf.animations[0]);
-                action.play();
-            }
-        },
-        undefined,
-        (error) => {
-            console.warn('Model not loaded yet:', error);
-            // Fallback: spinning ring if model not found
-            createFallbackWheel();
-        }
-    );
-}
+//             // Play animation if available
+//             if (gltf.animations && gltf.animations.length > 0) {
+//                 wheelMixer = new THREE.AnimationMixer(wheelModel);
+//                 const action = wheelMixer.clipAction(gltf.animations[0]);
+//                 action.play();
+//             }
+//         },
+//         undefined,
+//         (error) => {
+//             console.warn('Model not loaded yet:', error);
+//             // Fallback: spinning ring if model not found
+//             createFallbackWheel();
+//         }
+//     );
+// }
 
-function createFallbackWheel() {
-    const geometry = new THREE.TorusGeometry(1.5, 0.08, 16, 100);
-    const material = new THREE.MeshStandardMaterial({
-        color: 0xcc0000,
-        emissive: 0xcc0000,
-        emissiveIntensity: 0.5,
-        metalness: 0.9,
-        roughness: 0.1,
-    });
-    wheelModel = new THREE.Mesh(geometry, material);
+// function createFallbackWheel() {
+//     const geometry = new THREE.TorusGeometry(1.5, 0.08, 16, 100);
+//     const material = new THREE.MeshStandardMaterial({
+//         color: 0xcc0000,
+//         emissive: 0xcc0000,
+//         emissiveIntensity: 0.5,
+//         metalness: 0.9,
+//         roughness: 0.1,
+//     });
+//     wheelModel = new THREE.Mesh(geometry, material);
 
-    const spoke1 = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.03, 0.03, 3, 8),
-        material
-    );
-    const spoke2 = spoke1.clone();
-    const spoke3 = spoke1.clone();
-    const spoke4 = spoke1.clone();
-    spoke2.rotation.z = Math.PI / 2;
-    spoke3.rotation.z = Math.PI / 4;
-    spoke4.rotation.z = -Math.PI / 4;
+//     const spoke1 = new THREE.Mesh(
+//         new THREE.CylinderGeometry(0.03, 0.03, 3, 8),
+//         material
+//     );
+//     const spoke2 = spoke1.clone();
+//     const spoke3 = spoke1.clone();
+//     const spoke4 = spoke1.clone();
+//     spoke2.rotation.z = Math.PI / 2;
+//     spoke3.rotation.z = Math.PI / 4;
+//     spoke4.rotation.z = -Math.PI / 4;
 
-    wheelModel.add(spoke1, spoke2, spoke3, spoke4);
-    wheelScene.add(wheelModel);
-}
+//     wheelModel.add(spoke1, spoke2, spoke3, spoke4);
+//     wheelScene.add(wheelModel);
+// }
 
 // =============================================
 // SCROLL HOVER WHEEL SPEED
@@ -427,12 +428,3 @@ hamburger.addEventListener('click', () => {
     navLinks.style.gap = '15px';
 });
 
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('change', () => {
-    document.body.classList.toggle('dark-mode', darkModeToggle.checked);
-    if (darkModeToggle.checked) {
-        particleMaterial.color.set(0xff4444);
-    } else {
-        particleMaterial.color.set(0xcc0000);
-    }
-});
