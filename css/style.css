@@ -979,7 +979,7 @@ input:checked + .toggle-slider::before {
 .card-number {
     font-family: var(--font-display);
     font-size: 48px;
-    color: rgba(204,0,0,0.15);
+    color: var(--red);
     position: absolute;
     top: 15px;
     right: 20px;
