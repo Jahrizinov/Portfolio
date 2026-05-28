@@ -951,13 +951,14 @@ input:checked + .toggle-slider::before {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 25px;
 }
 
 .project-card {
     background: var(--black-card);
     border: 1px solid rgba(204,0,0,0.2);
+    border-radius: 24px;
     padding: 35px 28px;
     position: relative;
     overflow: hidden;
@@ -975,6 +976,7 @@ input:checked + .toggle-slider::before {
 .project-preview {
     min-height: 240px;
     border: 1px dashed rgba(255,255,255,0.15);
+    border-radius: 18px;
     background: rgba(255,255,255,0.03);
     display: flex;
     align-items: center;
