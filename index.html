@@ -78,12 +78,12 @@
 
     <!-- Navbar -->
     <nav id="main-nav" class="main-nav hidden">
-      <div class="nav-inner">
-        <a href="#hero" class="nav-brand">
+      <div class="container-fluid px-4 d-flex align-items-center justify-content-between" style="height:60px; max-width:1200px; margin:0 auto;">
+        <a href="#hero" class="nav-brand d-flex align-items-center gap-2 text-decoration-none">
           <img src="/img/logo%20van%20portfolio.jpg" alt="Portfolio logo" class="brand-logo rounded-circle" />
           <span class="brand-text">JAHRIZIÑO DESIGN</span>
         </a>
-        <ul class="nav-links">
+        <ul class="nav-links d-none d-md-flex list-unstyled mb-0 align-items-center gap-4">
           <li><a href="#hero" class="nav-link">Home</a></li>
           <li><a href="#about" class="nav-link">Over mij</a></li>
           <li><a href="#skilltree" class="nav-link">Vaardigheden</a></li>
@@ -91,7 +91,7 @@
           <li><a href="#goals" class="nav-link">Doelen</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <button class="hamburger" id="hamburger">
+        <button class="hamburger d-flex d-md-none" id="hamburger">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -115,11 +115,11 @@
             met Three.js, Vite en moderne webtechnologieën. Game design is een
             nieuw domein dat ik actief ontwikkel.
           </p>
-          <div class="hero-buttons">
+          <div class="hero-buttons d-flex flex-wrap gap-3">
             <a href="#skilltree" class="btn-primary">Bekijk vaardigheden</a>
             <a href="#projects" class="btn-secondary">Projecten</a>
           </div>
-          <div class="hero-scroll-hint">
+          <div class="hero-scroll-hint d-flex flex-column align-items-start gap-2 mt-5">
             <span>Scroll verder</span>
             <div class="scroll-line"></div>
           </div>

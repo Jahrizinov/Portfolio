@@ -297,15 +297,7 @@ input:checked + .toggle-slider::before {
     transition: all 0.5s ease;
 }
 
-.nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-}
+/* .nav-inner replaced by Bootstrap: container-fluid + d-flex align-items-center justify-content-between */
 
 .nav-brand {
     display: flex;
@@ -330,10 +322,7 @@ input:checked + .toggle-slider::before {
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    align-items: center;
+    /* display:flex, gap, align-items replaced by Bootstrap: d-none d-md-flex gap-4 align-items-center list-unstyled */
      background: rgba(5, 5, 5, 0.97);
 }
 
@@ -383,7 +372,7 @@ input:checked + .toggle-slider::before {
 }
 
 .hamburger {
-    display: none;
+    /* display:none / display:flex handled by Bootstrap: d-flex d-md-none */
     flex-direction: column;
     gap: 5px;
     background: none;
@@ -480,9 +469,7 @@ input:checked + .toggle-slider::before {
 }
 
 .hero-buttons {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    /* display:flex, gap, flex-wrap replaced by Bootstrap: d-flex flex-wrap gap-3 */
     opacity: 0;
     animation: fadeUp 0.8s ease 1.3s forwards;
 }
@@ -526,11 +513,7 @@ input:checked + .toggle-slider::before {
 }
 
 .hero-scroll-hint {
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    /* display:flex, flex-direction, align-items, gap, margin-top replaced by Bootstrap: d-flex flex-column align-items-start gap-2 mt-5 */
     opacity: 0;
     animation: fadeUp 0.8s ease 1.5s forwards;
 }
@@ -1322,8 +1305,8 @@ input:checked + .toggle-slider::before {
     .about-stats { flex-direction: row; justify-content: center; }
     .projects-grid { grid-template-columns: 1fr; }
     .goals-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
+    /* .nav-links display:none replaced by Bootstrap d-none d-md-flex */
+    /* .hamburger display:flex replaced by Bootstrap d-flex d-md-none */
     .section-container { padding: 0 25px; }
     .footer-inner { padding: 0 25px; flex-direction: column; gap: 15px; text-align: center; }
     .branch-nodes { gap: 12px; }
