@@ -35,6 +35,123 @@
       </div>
     </div>
 
+    <!-- Sigil Loader -->
+    <div id="sigil-loader" style="display:none;position:fixed;inset:0;background:#000;z-index:9999;align-items:center;justify-content:center;">
+      <div style="position:relative;width:320px;display:flex;flex-direction:column;align-items:center;">
+      <svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <style>
+            .sl-spin-cw{animation:sl-cw 10s linear infinite;transform-origin:160px 160px}
+            .sl-spin-ccw{animation:sl-ccw 10s linear infinite;transform-origin:160px 160px}
+            @keyframes sl-cw{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+            @keyframes sl-ccw{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+            .sl-draw{fill:none;stroke-dasharray:var(--len,1000);stroke-dashoffset:var(--len,1000);animation:sl-draw var(--dur,1.5s) ease forwards;animation-delay:var(--del,0s)}
+            @keyframes sl-draw{to{stroke-dashoffset:0}}
+            @keyframes sl-fade{from{opacity:0}to{opacity:1}}
+          </style>
+          <filter id="sl-g1" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="2.5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="sl-g2" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="5" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle class="sl-draw" cx="160" cy="160" r="150" stroke="#cc1100" stroke-width="6" filter="url(#sl-g2)" style="--len:943;--dur:3.26s;--del:0.0s"/>
+        <circle class="sl-draw" cx="160" cy="160" r="150" stroke="rgba(255,60,20,0.5)" stroke-width="2" style="--len:943;--dur:3.26s;--del:0.41s"/>
+        <circle class="sl-draw" cx="160" cy="160" r="143" stroke="rgba(160,20,0,0.35)" stroke-width="1" style="--len:899;--dur:2.85s;--del:0.82s"/>
+        <g class="sl-spin-ccw" filter="url(#sl-g1)">
+          <circle class="sl-draw" cx="160" cy="160" r="136" stroke="rgba(200,30,0,0.5)" stroke-width="1" style="--len:855;--dur:2.85s;--del:1.22s"/>
+          <circle class="sl-draw" cx="160" cy="160" r="126" stroke="rgba(200,30,0,0.25)" stroke-width="0.6" style="--len:792;--dur:2.45s;--del:1.63s"/>
+          <g stroke="#cc1100" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0" style="animation:sl-fade 0.3s ease forwards;animation-delay:3.67s">
+            <g transform="rotate(0 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(11.25 160 160)"><line x1="158" y1="16" x2="162" y2="23"/><line x1="162" y1="16" x2="158" y2="23"/></g>
+            <g transform="rotate(22.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="19" x2="164" y2="19"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+            <g transform="rotate(33.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/></g>
+            <g transform="rotate(45 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(56.25 160 160)"><line x1="157" y1="16" x2="163" y2="23"/><line x1="163" y1="16" x2="157" y2="23"/></g>
+            <g transform="rotate(67.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="16" x2="164" y2="16"/><line x1="156" y1="19" x2="164" y2="19"/></g>
+            <g transform="rotate(78.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+            <g transform="rotate(90 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(101.25 160 160)"><line x1="158" y1="16" x2="162" y2="23"/><line x1="162" y1="16" x2="158" y2="23"/></g>
+            <g transform="rotate(112.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="19" x2="164" y2="19"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+            <g transform="rotate(123.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/></g>
+            <g transform="rotate(135 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(146.25 160 160)"><line x1="157" y1="16" x2="163" y2="23"/><line x1="163" y1="16" x2="157" y2="23"/></g>
+            <g transform="rotate(157.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="16" x2="164" y2="16"/><line x1="156" y1="19" x2="164" y2="19"/></g>
+            <g transform="rotate(168.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+            <g transform="rotate(180 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(191.25 160 160)"><line x1="158" y1="16" x2="162" y2="23"/><line x1="162" y1="16" x2="158" y2="23"/></g>
+            <g transform="rotate(202.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="19" x2="164" y2="19"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+            <g transform="rotate(213.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/></g>
+            <g transform="rotate(225 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(236.25 160 160)"><line x1="157" y1="16" x2="163" y2="23"/><line x1="163" y1="16" x2="157" y2="23"/></g>
+            <g transform="rotate(247.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="16" x2="164" y2="16"/><line x1="156" y1="19" x2="164" y2="19"/></g>
+            <g transform="rotate(258.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+            <g transform="rotate(270 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(281.25 160 160)"><line x1="158" y1="16" x2="162" y2="23"/><line x1="162" y1="16" x2="158" y2="23"/></g>
+            <g transform="rotate(292.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="19" x2="164" y2="19"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+            <g transform="rotate(303.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/></g>
+            <g transform="rotate(315 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="18" x2="164" y2="18"/></g>
+            <g transform="rotate(326.25 160 160)"><line x1="157" y1="16" x2="163" y2="23"/><line x1="163" y1="16" x2="157" y2="23"/></g>
+            <g transform="rotate(337.5 160 160)"><line x1="160" y1="16" x2="160" y2="23"/><line x1="156" y1="16" x2="164" y2="16"/><line x1="156" y1="19" x2="164" y2="19"/></g>
+            <g transform="rotate(348.75 160 160)"><line x1="157" y1="16" x2="163" y2="16"/><line x1="160" y1="16" x2="160" y2="23"/><line x1="157" y1="23" x2="163" y2="23"/></g>
+          </g>
+        </g>
+        <g class="sl-spin-cw" filter="url(#sl-g1)" fill="#ff2200" stroke="none" opacity="0" style="animation:sl-fade 0.4s ease forwards;animation-delay:4.08s">
+          <polygon points="160,28 163,37 160,46 157,37"/>
+          <polygon points="274,160 283,163 292,160 283,157"/>
+          <polygon points="160,274 163,283 160,292 157,283"/>
+          <polygon points="28,160 37,163 46,160 37,157"/>
+        </g>
+        <g class="sl-spin-cw" filter="url(#sl-g1)">
+          <circle class="sl-draw" cx="160" cy="160" r="112" stroke="rgba(220,40,0,0.7)" stroke-width="1.4" style="--len:704;--dur:2.45s;--del:2.04s"/>
+        </g>
+        <g class="sl-spin-cw" filter="url(#sl-g2)">
+          <path class="sl-draw" d="M160,60 A100,100 0 0,1 246,210" stroke="#cc1100" stroke-width="8" stroke-linecap="round" style="--len:370;--dur:1.63s;--del:2.45s"/>
+          <path class="sl-draw" d="M246,210 A100,100 0 0,1 74,210" stroke="#cc1100" stroke-width="8" stroke-linecap="round" style="--len:370;--dur:1.63s;--del:3.1s"/>
+          <path class="sl-draw" d="M74,210 A100,100 0 0,1 160,60" stroke="#cc1100" stroke-width="8" stroke-linecap="round" style="--len:370;--dur:1.63s;--del:3.67s"/>
+          <path class="sl-draw" d="M160,60 A100,100 0 0,1 246,210" stroke="rgba(255,80,40,0.5)" stroke-width="2" stroke-linecap="round" style="--len:370;--dur:1.63s;--del:2.45s"/>
+          <path class="sl-draw" d="M246,210 A100,100 0 0,1 74,210" stroke="rgba(255,80,40,0.5)" stroke-width="2" stroke-linecap="round" style="--len:370;--dur:1.63s;--del:3.1s"/>
+          <path class="sl-draw" d="M74,210 A100,100 0 0,1 160,60" stroke="rgba(255,80,40,0.5)" stroke-width="2" stroke-linecap="round" style="--len:370;--dur:1.63s;--del:3.67s"/>
+          <g opacity="0" style="animation:sl-fade 0.3s ease forwards;animation-delay:4.48s" fill="#ff3300">
+            <polygon points="160,52 156,63 164,63"/>
+            <polygon points="252,215 241,210 247,200"/>
+            <polygon points="68,215 73,203 79,213"/>
+          </g>
+        </g>
+        <g class="sl-spin-ccw" filter="url(#sl-g2)" opacity="0.55">
+          <path class="sl-draw" d="M160,75 A85,85 0 0,1 233,202" stroke="#991100" stroke-width="5" stroke-linecap="round" style="--len:315;--dur:1.39s;--del:4.08s"/>
+          <path class="sl-draw" d="M233,202 A85,85 0 0,1 87,202" stroke="#991100" stroke-width="5" stroke-linecap="round" style="--len:315;--dur:1.39s;--del:4.48s"/>
+          <path class="sl-draw" d="M87,202 A85,85 0 0,1 160,75" stroke="#991100" stroke-width="5" stroke-linecap="round" style="--len:315;--dur:1.39s;--del:4.89s"/>
+        </g>
+        <polygon class="sl-draw" points="160,72 228,200 92,200" stroke="rgba(180,20,0,0.3)" stroke-width="1" filter="url(#sl-g1)" style="--len:500;--dur:2.04s;--del:4.48s"/>
+        <rect class="sl-draw" x="124" y="124" width="72" height="72" rx="1" stroke="rgba(180,20,0,0.3)" stroke-width="0.8" transform="rotate(45 160 160)" style="--len:288;--dur:1.39s;--del:5.05s"/>
+        <rect class="sl-draw" x="124" y="124" width="72" height="72" rx="1" stroke="rgba(180,20,0,0.2)" stroke-width="0.8" style="--len:288;--dur:1.39s;--del:5.54s"/>
+        <circle class="sl-draw" cx="160" cy="95" r="18" stroke="#cc1100" stroke-width="1.3" filter="url(#sl-g1)" style="--len:113;--dur:0.98s;--del:5.71s"/>
+        <g stroke="#cc1100" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0" style="animation:sl-fade 0.2s ease forwards;animation-delay:6.36s">
+          <line x1="160" y1="83" x2="160" y2="107"/><line x1="155" y1="89" x2="165" y2="89"/><line x1="157" y1="83" x2="163" y2="83"/>
+        </g>
+        <circle class="sl-draw" cx="113" cy="205" r="18" stroke="#cc1100" stroke-width="1.3" filter="url(#sl-g1)" style="--len:113;--dur:0.98s;--del:6.11s"/>
+        <g stroke="#cc1100" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0" style="animation:sl-fade 0.2s ease forwards;animation-delay:6.68s" transform="translate(113,205)">
+          <line x1="-5" y1="-8" x2="5" y2="-8"/><line x1="0" y1="-8" x2="0" y2="8"/><line x1="-6" y1="0" x2="6" y2="0"/><line x1="-5" y1="-8" x2="-8" y2="2"/><line x1="5" y1="-8" x2="8" y2="2"/>
+        </g>
+        <circle class="sl-draw" cx="207" cy="205" r="18" stroke="#cc1100" stroke-width="1.3" filter="url(#sl-g1)" style="--len:113;--dur:0.98s;--del:6.52s"/>
+        <g stroke="#cc1100" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0" style="animation:sl-fade 0.2s ease forwards;animation-delay:7.17s" transform="translate(207,205)">
+          <line x1="-7" y1="-7" x2="7" y2="7"/><line x1="7" y1="-7" x2="-7" y2="7"/><line x1="0" y1="-8" x2="0" y2="8"/><line x1="-8" y1="0" x2="8" y2="0"/>
+        </g>
+      </svg>
+      <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:16px;font-family:'Cinzel',serif;">
+        <div id="sigil-pct" style="font-size:28px;font-weight:600;color:#fff;text-shadow:0 0 12px #ff2200,0 0 30px #ff0000;letter-spacing:.1em;">0%</div>
+        <div style="font-size:10px;letter-spacing:.35em;color:#cc2200;text-shadow:0 0 8px #ff2200;text-transform:uppercase;">Invoking...</div>
+        <div style="width:140px;height:6px;background:rgba(180,0,0,0.2);border:1px solid rgba(200,20,0,0.5);border-radius:3px;overflow:hidden;box-shadow:0 0 8px rgba(255,0,0,0.3);">
+          <div id="sigil-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#a00,#ff2200);border-radius:3px;transition:width 0.1s linear;"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+
     <!-- Settings Sidebar Trigger -->
     <button
       id="settings-toggle-btn"

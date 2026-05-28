@@ -1312,3 +1312,4 @@ input:checked + .toggle-slider::before {
     .branch-nodes { gap: 12px; }
     .skill-node { width: 120px; }
 }
+

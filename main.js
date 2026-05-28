@@ -96,20 +96,54 @@ let isAudioPlaying = false;
 let particlesEnabled = true;
 
 enterBtn.addEventListener("click", () => {
+  // 1. Fade out warning overlay
   domainOverlay.classList.add("fade-out");
+
   setTimeout(() => {
     domainOverlay.style.display = "none";
-    mainContent.classList.remove("hidden");
-    mainContent.classList.add("visible");
-    mainNav.classList.remove("hidden");
-    mainNav.classList.add("visible");
-    mainFooter.classList.remove("hidden");
-    mainFooter.classList.add("visible");
-    settingsBar.classList.remove("hidden");
-    settingsBar.classList.add("visible");
-    initAudio();
-    initWheelScene();
-    initScrollReveal();
+
+    // 2. Toon sigil loader
+    const sigilLoader = document.getElementById("sigil-loader");
+    sigilLoader.style.display = "flex";
+    sigilLoader.style.opacity = "1";
+
+    // 3. Wacht tot teken-animatie klaar is (~2s), dan progress bar
+    let p = 0;
+    const pctEl = document.getElementById("sigil-pct");
+    const barEl = document.getElementById("sigil-bar");
+
+    function tick() {
+      p += Math.random() * 2.2 + 0.4;
+      if (p > 100) p = 100;
+      pctEl.textContent = Math.floor(p) + "%";
+      barEl.style.width = p + "%";
+      if (p < 100) {
+        setTimeout(tick, 60 + Math.random() * 80);
+      } else {
+        // 4. Progress klaar → 3s wachten, dan fade out loader, fade in portfolio
+        setTimeout(() => {
+          sigilLoader.style.transition = "opacity 0.8s ease";
+          sigilLoader.style.opacity = "0";
+          setTimeout(() => {
+            sigilLoader.style.display = "none";
+            mainContent.classList.remove("hidden");
+            mainContent.classList.add("visible");
+            mainNav.classList.remove("hidden");
+            mainNav.classList.add("visible");
+            mainFooter.classList.remove("hidden");
+            mainFooter.classList.add("visible");
+            settingsBar.classList.remove("hidden");
+            settingsBar.classList.add("visible");
+            initAudio();
+            initWheelScene();
+            initScrollReveal();
+          }, 800);
+        }, 3000);
+      }
+    }
+
+    // Start progress bar direct samen met teken-animatie
+    tick();
   }, 1000);
 });
 
