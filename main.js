@@ -63,7 +63,33 @@ window.addEventListener("DOMContentLoaded", () => {
   // Knop
   const btn = document.querySelector("#enterBtn span");
   if (btn) btn.textContent = "Start portfolio";
+  markProjectPlaceholders();
 });
+
+function markProjectPlaceholders() {
+  const cards = document.querySelectorAll(".project-card");
+  cards.forEach((card) => {
+    const title = card.querySelector(".card-title");
+    const desc = card.querySelector(".card-desc");
+    const status = card.querySelector(".card-status");
+    if (!title || !desc || !status) return;
+
+    const titleText = title.textContent.trim().toUpperCase();
+    const descText = desc.textContent.trim().toUpperCase();
+
+    const isPlaceholder =
+      titleText.includes("PROJECTNAAM") ||
+      titleText.includes("VOEG PROJECTNAAM HIER TOE") ||
+      descText.includes("VOEG PROJECTOMSCHRIJVING HIER TOE") ||
+      descText.includes("WELKE TECHNIEKEN") ||
+      descText.includes("WAT IS HET DOEL");
+
+    if (isPlaceholder) {
+      card.classList.add("placeholder-card");
+      status.textContent = "VUL HIER IN";
+    }
+  });
+}
 
 let audioContext, analyser, audioSource, audioBuffer;
 let isAudioPlaying = false;
