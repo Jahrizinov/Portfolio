@@ -984,6 +984,13 @@ input:checked + .toggle-slider::before {
     padding: 18px;
 }
 
+.project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
 .preview-placeholder {
     text-align: center;
     font-family: var(--font-mono);
@@ -1022,7 +1029,7 @@ input:checked + .toggle-slider::before {
 .project-card.placeholder-card .card-status,
 .project-card.placeholder-card .card-desc,
 .project-card.placeholder-card .tag {
-    color: var(--gray);
+    color: var(--white);
 }
 
 .project-card.placeholder-card .card-status {
