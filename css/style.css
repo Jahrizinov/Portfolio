@@ -1313,3 +1313,37 @@ input:checked + .toggle-slider::before {
     .skill-node { width: 120px; }
 }
 
+
+/* =============================================
+   SIGIL LOADER ANIMATIES
+   ============================================= */
+.sl-spin-cw {
+  animation: sl-cw 10s linear infinite;
+  transform-origin: 160px 160px;
+}
+.sl-spin-ccw {
+  animation: sl-ccw 10s linear infinite;
+  transform-origin: 160px 160px;
+}
+@keyframes sl-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes sl-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+.sl-draw {
+  fill: none;
+  stroke-dasharray: var(--len, 1000);
+  stroke-dashoffset: var(--len, 1000);
+  animation: sl-draw var(--dur, 1.5s) ease forwards;
+  animation-delay: var(--del, 0s);
+}
+@keyframes sl-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes sl-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

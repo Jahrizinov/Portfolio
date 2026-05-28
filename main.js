@@ -104,6 +104,8 @@ enterBtn.addEventListener("click", () => {
 
     // 2. Toon sigil loader
     const sigilLoader = document.getElementById("sigil-loader");
+    const vfxCanvas = document.getElementById("vfx-canvas");
+    vfxCanvas.style.zIndex = "9998";
     sigilLoader.style.display = "flex";
     sigilLoader.style.opacity = "1";
 
@@ -126,6 +128,7 @@ enterBtn.addEventListener("click", () => {
           sigilLoader.style.opacity = "0";
           setTimeout(() => {
             sigilLoader.style.display = "none";
+            vfxCanvas.style.zIndex = "0";
             mainContent.classList.remove("hidden");
             mainContent.classList.add("visible");
             mainNav.classList.remove("hidden");

@@ -36,20 +36,11 @@
     </div>
 
     <!-- Sigil Loader -->
-    <div id="sigil-loader" style="display:none;position:fixed;inset:0;background:#000;z-index:9999;align-items:center;justify-content:center;">
+    <div id="sigil-loader" style="display:none;position:fixed;inset:0;background:transparent;z-index:9999;align-items:center;justify-content:center;">
       <div style="position:relative;width:320px;display:flex;flex-direction:column;align-items:center;">
       <svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <style>
-            .sl-spin-cw{animation:sl-cw 10s linear infinite;transform-origin:160px 160px}
-            .sl-spin-ccw{animation:sl-ccw 10s linear infinite;transform-origin:160px 160px}
-            @keyframes sl-cw{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-            @keyframes sl-ccw{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-            .sl-draw{fill:none;stroke-dasharray:var(--len,1000);stroke-dashoffset:var(--len,1000);animation:sl-draw var(--dur,1.5s) ease forwards;animation-delay:var(--del,0s)}
-            @keyframes sl-draw{to{stroke-dashoffset:0}}
-            @keyframes sl-fade{from{opacity:0}to{opacity:1}}
-          </style>
-          <filter id="sl-g1" x="-40%" y="-40%" width="180%" height="180%">
+<filter id="sl-g1" x="-40%" y="-40%" width="180%" height="180%">
             <feGaussianBlur stdDeviation="2.5" result="b"/>
             <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
