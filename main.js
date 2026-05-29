@@ -10,7 +10,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 // Alle DOM-elementen bovenaan declareren
 const settingsBar = document.getElementById("settings-bar");
-const settingsToggleBtn = document.getElementById('settings-toggle-btn');
+const settingsToggleBtn = document.getElementById("settings-toggle-btn");
 const enterBtn = document.getElementById("enterBtn");
 const domainOverlay = document.getElementById("domain-warning");
 const mainContent = document.getElementById("main-content");
@@ -19,23 +19,23 @@ const mainFooter = document.getElementById("main-footer");
 
 // SETTINGS SIDEBAR TOGGLE
 if (settingsToggleBtn && settingsBar) {
-  settingsToggleBtn.addEventListener('click', () => {
-    const isVisible = settingsBar.classList.contains('visible');
+  settingsToggleBtn.addEventListener("click", () => {
+    const isVisible = settingsBar.classList.contains("visible");
     if (isVisible) {
-      settingsBar.classList.remove('visible');
+      settingsBar.classList.remove("visible");
     } else {
-      settingsBar.classList.add('visible');
-      settingsBar.classList.remove('hidden');
+      settingsBar.classList.add("visible");
+      settingsBar.classList.remove("hidden");
     }
   });
   // Sluit de sidebar bij klik buiten de sidebar
-  document.addEventListener('click', (e) => {
+  document.addEventListener("click", (e) => {
     if (
-      settingsBar.classList.contains('visible') &&
+      settingsBar.classList.contains("visible") &&
       !settingsBar.contains(e.target) &&
       e.target !== settingsToggleBtn
     ) {
-      settingsBar.classList.remove('visible');
+      settingsBar.classList.remove("visible");
     }
   });
 }
@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function markProjectPlaceholders() {
   const cards = document.querySelectorAll(".project-card");
   cards.forEach((card) => {
-    const title = card.querySelector(".card-title");
+    const title = card.querySelector(".cards-title");
     const desc = card.querySelector(".card-desc");
     const status = card.querySelector(".card-status");
     if (!title || !desc || !status) return;
