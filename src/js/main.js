@@ -170,7 +170,7 @@ function initScrollReveal() {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("show");
-          }, i * 1);
+          }, i * 100);
         }
       });
     },
