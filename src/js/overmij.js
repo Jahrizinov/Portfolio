@@ -1,8 +1,4 @@
-/* =============================================
-   OVER MIJ — JavaScript
-   ============================================= */
 
-// ---- PARTICLES ----
 const canvas = document.getElementById('om-canvas');
 const ctx    = canvas.getContext('2d');
 
