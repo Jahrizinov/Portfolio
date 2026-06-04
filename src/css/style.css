@@ -316,7 +316,7 @@ input:checked + .toggle-slider::before {
 /* === NAVBAR === */
 .main-nav {
   position: fixed;
-  top: 37px;
+  top: 0;
   left: 0;
   width: 100%;
   background: rgba(5, 5, 5, 0.85);

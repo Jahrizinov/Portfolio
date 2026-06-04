@@ -14,8 +14,8 @@
     <!-- <link rel="stylesheet" href="src/css/sidebar.css" /> -->
     <link rel="icon" type="image/jpeg" href="/Portfolio/img/logo van portfolio.jpg" />
     <link rel="apple-touch-icon" href="/Portfolio/img/logo van portfolio.jpg" />
-    <script type="module" crossorigin src="/Portfolio/assets/index-Djcm8kuh.js"></script>
-    <link rel="stylesheet" crossorigin href="/Portfolio/assets/index-BwsZDWUD.css">
+    <script type="module" crossorigin src="/Portfolio/assets/main-gIWgdNm1.js"></script>
+    <link rel="stylesheet" crossorigin href="/Portfolio/assets/main-DrkbpBaj.css">
   </head>
   <body>
     <!-- Warning Modal -->
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Sigil Loader -->
-    <div id="sigil-loader" style="display:none;position:fixed;inset:0;background:transparent;z-index:9999;align-items:center;justify-content:center;">
+    <div id="sigil-loader" style="display:none;position:fixed;inset:0;background:transparent;z-index:9999;align-items:center;justify-content:left;">
       <div style="position:relative;width:320px;display:flex;flex-direction:column;align-items:center;">
       <svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -136,7 +136,7 @@
       </svg>
       <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:16px;font-family:'Cinzel',serif;">
         <div id="sigil-pct" style="font-size:28px;font-weight:600;color:#fff;text-shadow:0 0 12px #ff2200,0 0 30px #ff0000;letter-spacing:.1em;">0%</div>
-        <div style="font-size:10px;letter-spacing:.35em;color:#cc2200;text-shadow:0 0 8px #ff2200;text-transform:uppercase;">Invoking...</div>
+        <div style="font-size:10px;letter-spacing:.35em;color:#cc2200;text-shadow:0 0 8px #ff2200;text-transform:uppercase;">Loading...</div>
         <div style="width:140px;height:6px;background:rgba(180,0,0,0.2);border:1px solid rgba(200,20,0,0.5);border-radius:3px;overflow:hidden;box-shadow:0 0 8px rgba(255,0,0,0.3);">
           <div id="sigil-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#a00,#ff2200);border-radius:3px;transition:width 0.1s linear;"></div>
         </div>
@@ -154,8 +154,8 @@
     </button>
 
     <!-- Settings Sidebar -->
-    <div id="settings-bar" class="settings-bar sidebar hidden">
-      <div class="settings-inner">
+    <div id="settings-bar" class="hidden">
+      <!-- <div class="settings-inner">
         <span class="settings-label">⚙ Instellingen</span>
         <div class="setting-item">
           <label class="setting-toggle">
@@ -182,7 +182,7 @@
           />
           <span class="setting-name">Volume</span>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <!-- Navbar -->
@@ -194,7 +194,7 @@
         </a>
         <ul class="nav-links d-none d-md-flex list-unstyled mb-0 align-items-center gap-4">
           <li><a href="#hero" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">Over mij</a></li>
+          <li><a href="overmij.html" class="nav-link">Over mij</a></li>
           <li><a href="#skilltree" class="nav-link">Vaardigheden</a></li>
           <li><a href="#projects" class="nav-link">Projecten</a></li>
           <li><a href="#goals" class="nav-link">Doelen</a></li>
@@ -490,17 +490,13 @@
                 </div>
                 <div class="project-info">
                   <div class="card-number">01</div>
-                  <div class="card-status active-status">ACTIEF / IN ONTWIKKELING</div>
-                  <h3 class="card-title">Quiz</h3>
+
+                  <h3 class="cards-title">Quiz</h3>
                   <p class="card-desc">
                     Interactieve quiz met dynamische vragen en scoreweergave.
                     Gebouwd met HTML, CSS en JavaScript voor een moderne leerervaring.
                   </p>
-                  <div class="card-tags">
-                    <span class="tag">#quiz</span>
-                    <span class="tag">#javascript</span>
-                    <span class="tag">#ui</span>
-                  </div>
+
                 </div>
               </div>
               <div class="card-glow"></div>
@@ -513,17 +509,13 @@
                 </div>
                 <div class="project-info">
                   <div class="card-number">02</div>
-                  <div class="card-status planning-status">IN ONTWIKKELING</div>
-                  <h3 class="card-title">Vier op een rij</h3>
+
+                  <h3 class="cards-title">Vier op een rij</h3>
                   <p class="card-desc">
                     Klassiek strategisch spel met een strakke, responsive interface.
                     Voorzien van slimme spelregels en speelbaar op desktop en mobiel.
                   </p>
-                  <div class="card-tags">
-                    <span class="tag">#game</span>
-                    <span class="tag">#css</span>
-                    <span class="tag">#responsive</span>
-                  </div>
+
                 </div>
               </div>
               <div class="card-glow"></div>
@@ -536,17 +528,13 @@
                 </div>
                 <div class="project-info">
                   <div class="card-number">03</div>
-                  <div class="card-status locked-status">TOEKOMSTIG</div>
-                  <h3 class="card-title">Mon-In</h3>
+
+                  <h3 class="cards-title">Mon-In</h3>
                   <p class="card-desc">
                     Concept voor een creatieve interface met visuele storytelling.
                     Ontwikkeld als demonstratie van design, animatie en UX skills.
                   </p>
-                  <div class="card-tags">
-                    <span class="tag">#concept</span>
-                    <span class="tag">#design</span>
-                    <span class="tag">#animation</span>
-                  </div>
+
                 </div>
               </div>
               <div class="card-glow"></div>
@@ -559,17 +547,13 @@
                 </div>
                 <div class="project-info">
                   <div class="card-number">04</div>
-                  <div class="card-status planning-status">IN PROGRESS</div>
-                  <h3 class="card-title">Op komende project</h3>
+
+                  <h3 class="cards-title">Op komende project</h3>
                   <p class="card-desc">
                     Deze plek is gereserveerd voor een nieuw project dat momenteel
                     in ontwikkeling is. Houd de voortgang hier in de gaten.
                   </p>
-                  <div class="card-tags">
-                    <span class="tag">#comingsoon</span>
-                    <span class="tag">#inprogress</span>
-                    <span class="tag">#locked</span>
-                  </div>
+
                 </div>
               </div>
               <div class="card-glow"></div>

@@ -11,7 +11,7 @@ import { animateParticles } from "./particles.js";
 import { initWheelScene, animateWheel } from "./wheel.js";
 import { initSettings, initSkillTree, initHamburger } from "./settings.js";
 
-// =============================================
+// =============================================s
 // DOM ELEMENTS
 // =============================================
 const settingsBar = document.getElementById("settings-bar");
@@ -20,12 +20,12 @@ const domainOverlay = document.getElementById("domain-warning");
 const mainContent = document.getElementById("main-content");
 const mainNav = document.getElementById("main-nav");
 const mainFooter = document.getElementById("main-footer");
+// Null-safe: settings sidebar is uitgecommentarieerd
 
 // =============================================
 // ON DOM READY
 // =============================================
 window.addEventListener("DOMContentLoaded", () => {
-  // Pas de warning overlay teksten aan
   const title = document.querySelector(".domain-title");
   if (title) title.textContent = "Welkom op mijn portfolio";
 
@@ -42,6 +42,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const btn = document.querySelector("#enterBtn span");
   if (btn) btn.textContent = "Start portfolio";
+
+  // ── Intro overslaan als al gezien ──────────────────────────
+  if (sessionStorage.getItem("introSeen")) {
+    domainOverlay.style.display = "none";
+
+    mainContent.classList.remove("hidden");
+    mainContent.classList.add("visible");
+    mainNav.classList.remove("hidden");
+    mainNav.classList.add("visible");
+    mainFooter.classList.remove("hidden");
+    mainFooter.classList.add("visible");
+    settingsBar.classList.remove("hidden");
+    settingsBar.classList.add("visible");
+
+    initAudio();
+    initWheelScene();
+    initScrollReveal();
+  }
+  // ────────────────────────────────────────────────────────────
 
   markProjectPlaceholders();
   initSettings();
@@ -81,6 +100,10 @@ function markProjectPlaceholders() {
 // ENTER BUTTON — Loading sequence
 // =============================================
 enterBtn.addEventListener("click", () => {
+  // ── Markeer als gezien zodat het niet meer terugkomt ───────
+  sessionStorage.setItem("introSeen", "true");
+  // ────────────────────────────────────────────────────────────
+
   domainOverlay.classList.add("fade-out");
 
   setTimeout(() => {
@@ -138,7 +161,7 @@ enterBtn.addEventListener("click", () => {
 // =============================================
 function initScrollReveal() {
   const revealElements = document.querySelectorAll(
-    ".reveal, .reveal-left, .reveal-right",
+    ".reveal, .reveal-left, .reveal-right"
   );
 
   const observer = new IntersectionObserver(
@@ -147,14 +170,17 @@ function initScrollReveal() {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("show");
-          }, i * 100);
+          }, i * 1);
         }
       });
     },
-    { threshold: 0.1 },
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
   );
 
-  revealElements.forEach((el) => observer.observe(el));
+  revealElements.forEach((el) => {
+    el.classList.remove("show"); // reset eerst
+    observer.observe(el);
+  });
 }
 
 // =============================================
@@ -173,3 +199,5 @@ function animate() {
 }
 
 animate();
+
+

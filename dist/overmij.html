@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Over Mij — Portfolio Jahriziño</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Eigen stylesheet -->
+
+    <link rel="icon" type="image/jpeg" href="/Portfolio/img/logo van portfolio.jpg" />
+    <link rel="apple-touch-icon" href="/Portfolio/img/logo van portfolio.jpg" />
+    <link rel="stylesheet" crossorigin href="/Portfolio/assets/overMij-BxuFDhrt.css">
+  </head>
+  <body>
+
+    <!-- Particles Canvas -->
+    <canvas id="om-canvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="main-nav">
+      <div class="container-fluid px-4 d-flex align-items-center justify-content-between" style="max-width:1200px; margin:0 auto; height:60px;">
+
+        <!-- Brand -->
+        <a href="index.html" class="d-flex align-items-center gap-2 text-decoration-none">
+          <img src="/Portfolio/img/logo van portfolio.jpg" alt="Portfolio logo" class="brand-logo rounded-circle" />
+          <span class="brand-text">JAHRIZIÑO DESIGN</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <ul class="d-none d-md-flex list-unstyled mb-0 align-items-center gap-4">
+          <li><a href="index.html#hero"      class="nav-link">Home</a></li>
+          <li><a href="overmij.html"        class="nav-link active">Over mij</a></li>
+          <li><a href="index.html#skilltree" class="nav-link">Vaardigheden</a></li>
+          <li><a href="index.html#projects"  class="nav-link">Projecten</a></li>
+          <li><a href="index.html#goals"     class="nav-link">Doelen</a></li>
+          <li><a href="index.html#contact"   class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Hamburger (mobile) -->
+        <button class="hamburger d-flex d-md-none" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile nav drawer -->
+      <ul class="mobile-nav list-unstyled mb-0" id="mobile-nav">
+        <li><a href="index.html#hero"      class="nav-link">Home</a></li>
+        <li><a href="over-mij.html"        class="nav-link active">Over mij</a></li>
+        <li><a href="index.html#skilltree" class="nav-link">Vaardigheden</a></li>
+        <li><a href="index.html#projects"  class="nav-link">Projecten</a></li>
+        <li><a href="index.html#goals"     class="nav-link">Doelen</a></li>
+        <li><a href="index.html#contact"   class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="om-content">
+      <div class="om-section">
+
+        <a href="index.html" class="back-link">
+          <i class="bi bi-arrow-left"></i> Terug naar home
+        </a>
+
+        <div class="om-section-tag">// over_mij.js</div>
+        <h1 class="om-section-title typewriter" id="om-title">OVER MIJ</h1>
+        <p class="om-section-sub">$ whoami && cat about.txt</p>
+
+        <!-- BIO -->
+        <div class="sub-label reveal">// wie ben ik</div>
+        <div class="bio-block reveal">
+          <p>
+            Ik ben <span>Jahriziño</span>, een developer uit Den Haag met een passie voor visuele
+            en interactieve ervaringen op het web. Ik houd van dingen bouwen die er niet gewoon
+            uitzien — van 3D-werelden tot vloeiende animaties.
+          </p>
+          <p>
+            Wat mij drijft is de combinatie van <span>techniek en creativiteit</span>. Code is voor mij
+            niet alleen een tool, het is een canvas. Ik ben altijd bezig met leren, experimenteren
+            en groeien als developer.
+          </p>
+          <p>
+            Buiten code ben ik geïnteresseerd in <span>game design</span>, 3D art en het bouwen van
+            dingen die een eigen wereld creëren. Mijn doel? Ooit een eigen studio runnen.
+          </p>
+        </div>
+
+        <div class="om-divider"></div>
+
+        <!-- STATS -->
+        <div class="sub-label reveal">// stats</div>
+        <div class="stats-row reveal">
+          <div class="stat-item">
+            <span class="stat-num counter" data-target="2026" data-type="year">2026</span>
+            <span class="stat-label">actief sinds</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num counter" data-target="3">0</span>
+            <span class="stat-label">projecten</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num counter" data-target="7">0</span>
+            <span class="stat-label">tools</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">∞</span>
+            <span class="stat-label">ambitie</span>
+          </div>
+        </div>
+
+        <div class="om-divider"></div>
+
+        <!-- SKILLS -->
+        <div class="sub-label reveal">// skill niveau</div>
+        <div class="reveal">
+          <div class="skill-row">
+            <span class="skill-name">HTML / CSS</span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-width="80%"></div></div>
+            <span class="skill-stars"><span class="lit">★★★★</span>★</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">JavaScript</span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-width="60%"></div></div>
+            <span class="skill-stars"><span class="lit">★★★</span>★★</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">UI / UX</span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-width="60%"></div></div>
+            <span class="skill-stars"><span class="lit">★★★</span>★★</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Three.js</span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-width="40%"></div></div>
+            <span class="skill-stars"><span class="lit">★★</span>★★★</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Vite</span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-width="40%"></div></div>
+            <span class="skill-stars"><span class="lit">★★</span>★★★</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Blender</span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-width="40%"></div></div>
+            <span class="skill-stars"><span class="lit">★★</span>★★★</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Game Design</span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%" data-width="20%"></div></div>
+            <span class="skill-stars"><span class="lit">★</span>★★★★</span>
+          </div>
+          <div class="skill-row locked">
+            <span class="skill-name">3D Master <span class="lock-badge">locked</span></span>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:0%"></div></div>
+            <span class="skill-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="om-divider"></div>
+
+        <!-- TIJDLIJN -->
+        <div class="sub-label reveal">// tijdlijn</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">2026 — nu</div>
+            <div class="tl-text">Gestart met coderen via school</div>
+            <div class="tl-sub">// MBO · eerste projecten</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2026 — nu</div>
+            <div class="tl-text">Portfolio bouwen & eerste projecten lanceren</div>
+            <div class="tl-sub">// Three.js, Vite, Blender & UI/UX</div>
+          </div>
+          <div class="tl-item future">
+            <div class="tl-year">binnenkort</div>
+            <div class="tl-text">React, GSAP, WebGL shaders & fullstack leren...</div>
+          </div>
+        </div>
+
+        <div class="om-divider"></div>
+
+        <!-- TALEN & SOFT SKILLS -->
+        <div class="sub-label reveal">// talen & soft skills</div>
+        <div class="badges-row reveal">
+          <span class="badge-item"><i class="bi bi-chat-dots"></i> Nederlands</span>
+          <span class="badge-item"><i class="bi bi-chat-dots"></i> Engels</span>
+          <span class="badge-item"><i class="bi bi-lightbulb"></i> Creatief denken</span>
+          <span class="badge-item"><i class="bi bi-rocket"></i> Gedreven</span>
+          <span class="badge-item"><i class="bi bi-person"></i> Zelfstandig</span>
+        </div>
+
+        <div class="om-divider"></div>
+
+        <!-- TOEKOMSTDOELEN -->
+        <div class="sub-label reveal">// toekomstdoelen</div>
+        <div class="doelen-grid reveal">
+          <div class="doel-card">
+            <div class="doel-icon"><i class="bi bi-controller"></i></div>
+            <div class="doel-name">Game Developer</div>
+            <div class="doel-desc">// eigen games bouwen</div>
+          </div>
+          <div class="doel-card">
+            <div class="doel-icon"><i class="bi bi-box"></i></div>
+            <div class="doel-name">3D Artist</div>
+            <div class="doel-desc">// visuele werelden maken</div>
+          </div>
+          <div class="doel-card placeholder">
+            <div class="doel-icon"><i class="bi bi-question-circle"></i></div>
+            <div class="doel-name">???</div>
+            <div class="doel-desc">// wordt onthuld...</div>
+          </div>
+        </div>
+
+        <div class="om-footer-hint">
+          <div class="pulse-dot"></div>
+          <span>altijd aan het groeien</span>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Bootstrap 5 JS (bundle incl. Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Eigen script -->
+    <script src="src/js/overmij.js"></script>
+
+  </body>
+</html>
