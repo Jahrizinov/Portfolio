@@ -2,6 +2,11 @@
    CURSED PORTFOLIO — Sukuna / JJK Theme
    ======================================== */
 
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 :root {
   --red: #ff4444;
   --red-bright: #ff6666;
@@ -324,6 +329,7 @@ input:checked + .toggle-slider::before {
   border-bottom: 1px solid rgba(204, 0, 0, 0.2);
   z-index: 999;
   transition: all 0.5s ease;
+  position: relative;
 }
 
 /* .nav-inner replaced by Bootstrap: container-fluid + d-flex align-items-center justify-content-between */
@@ -1066,6 +1072,38 @@ input:checked + .toggle-slider::before {
   }
 }
 
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 90px 20px 50px;
+  }
+
+  .hero-wheel-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .section-container {
+    padding: 0 20px;
+  }
+
+  .domain-box {
+    padding: 40px 20px;
+    margin: 0 16px;
+  }
+
+  .domain-title {
+    font-size: 20px;
+  }
+
+  .skill-node {
+    width: 100px;
+  }
+
+  .card-number {
+    font-size: 32px;
+  }
+}
+
 .project-card.placeholder-card {
   border-style: dashed;
   background: rgba(255, 255, 255, 0.03);
@@ -1390,7 +1428,29 @@ input:checked + .toggle-slider::before {
   }
 }
 
-@media (max-width: 768px) {
+/* === HAMBURGER DROPDOWN === */
+@media (max-width: 767px) {
+  /* === HAMBURGER DROPDOWN === */
+  .nav-links {
+    display: none !important;
+    flex-direction: column !important;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(5, 5, 5, 0.97);
+    padding: 20px;
+    border-bottom: 1px solid rgba(204, 0, 0, 0.3);
+    gap: 15px !important;
+    z-index: 998;
+  }
+
+  .nav-links.nav-open {
+    display: flex !important;
+  }
+
+  /* === HERO === */
   .hero-section {
     flex-direction: column;
     padding: 100px 30px 60px;
@@ -1410,22 +1470,35 @@ input:checked + .toggle-slider::before {
     height: 250px;
     margin-top: 40px;
   }
+
+  /* === ABOUT === */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   .about-stats {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
   }
+  .stat-item {
+    flex: 1 1 120px;
+    max-width: 160px;
+    min-width: 100px;
+    padding: 18px 10px;
+  }
+  .stat-num {
+    font-size: 26px;
+  }
+
+  /* === LAYOUT === */
   .projects-grid {
     grid-template-columns: 1fr;
   }
   .goals-grid {
     grid-template-columns: 1fr;
   }
-  /* .nav-links display:none replaced by Bootstrap d-none d-md-flex */
-  /* .hamburger display:flex replaced by Bootstrap d-flex d-md-none */
   .section-container {
     padding: 0 25px;
   }

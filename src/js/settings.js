@@ -94,15 +94,20 @@ export function initHamburger() {
   const navLinks = document.querySelector(".nav-links");
 
   hamburger?.addEventListener("click", () => {
-    const isOpen = navLinks.style.display === "flex";
-    navLinks.style.display = isOpen ? "none" : "flex";
-    navLinks.style.flexDirection = "column";
-    navLinks.style.position = "absolute";
-    navLinks.style.top = "60px";
-    navLinks.style.right = "0";
-    navLinks.style.background = "rgba(5,5,5,0.97)";
-    navLinks.style.padding = "20px";
-    navLinks.style.border = "1px solid rgba(204,0,0,0.3)";
-    navLinks.style.gap = "15px";
+    navLinks.classList.toggle("nav-open");
+  });
+
+  // Sluit menu bij klik op een link
+  navLinks?.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("nav-open");
+    });
+  });
+
+  // Verwijder nav-open als scherm groter wordt dan 768px
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 767) {
+      navLinks.classList.remove("nav-open");
+    }
   });
 }
