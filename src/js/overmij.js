@@ -21,10 +21,12 @@ const particles = Array.from({ length: 120 }, () => ({
 }));
 
 const purples = ['#c084fc', '#a87de8', '#7b4fd4', '#5a3a9e', '#3d1f8c'];
+const lightPurples = ['#6d3fc4', '#5a32a8', '#4b278f', '#3d2077', '#311a61'];
 
 function drawParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const t = Date.now() * 0.001;
+  const isLightTheme = document.documentElement.dataset.theme === 'light';
 
   particles.forEach(p => {
     p.x += p.vx;
@@ -36,7 +38,8 @@ function drawParticles() {
 
     const flicker = p.o * (0.7 + 0.3 * Math.sin(t * 1.5 + p.pulse));
     ctx.globalAlpha = flicker;
-    ctx.fillStyle   = purples[Math.floor(p.r * 2) % purples.length];
+    const particleColors = isLightTheme ? lightPurples : purples;
+    ctx.fillStyle   = particleColors[Math.floor(p.r * 2) % particleColors.length];
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fill();
@@ -44,7 +47,7 @@ function drawParticles() {
 
   // Connectielijnen
   ctx.globalAlpha = 0.04;
-  ctx.strokeStyle = '#7b4fd4';
+  ctx.strokeStyle = isLightTheme ? '#5a32a8' : '#7b4fd4';
   ctx.lineWidth   = 0.5;
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
@@ -67,19 +70,21 @@ drawParticles();
 
 // ---- TYPEWRITER ----
 const titleEl   = document.getElementById('om-title');
-const titleText = 'OVER MIJ';
-titleEl.textContent = '';
-let charIndex = 0;
+const titleText = titleEl?.textContent.trim() || 'OVER MIJ';
+if (titleEl) {
+  titleEl.textContent = '';
+  let charIndex = 0;
 
-function typeWriter() {
-  if (charIndex < titleText.length) {
-    titleEl.textContent += titleText[charIndex];
-    charIndex++;
-    setTimeout(typeWriter, 100);
+  function typeWriter() {
+    if (charIndex < titleText.length) {
+      titleEl.textContent += titleText[charIndex];
+      charIndex++;
+      setTimeout(typeWriter, 100);
+    }
   }
-}
 
-setTimeout(typeWriter, 300);
+  setTimeout(typeWriter, 300);
+}
 
 // ---- SCROLL REVEAL ----
 const revealEls = document.querySelectorAll('.reveal');

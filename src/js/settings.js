@@ -91,23 +91,27 @@ export function initSkillTree() {
 // =============================================
 export function initHamburger() {
   const hamburger = document.getElementById("hamburger");
-  const navLinks = document.querySelector(".nav-links");
+  const mobileNav = document.getElementById("mobile-nav");
+  if (!hamburger || !mobileNav) return;
 
-  hamburger?.addEventListener("click", () => {
-    navLinks.classList.toggle("nav-open");
+  hamburger.addEventListener("click", () => {
+    const isOpen = mobileNav.classList.toggle("open");
+    hamburger.setAttribute("aria-expanded", String(isOpen));
   });
 
   // Sluit menu bij klik op een link
-  navLinks?.querySelectorAll(".nav-link").forEach((link) => {
+  mobileNav.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", () => {
-      navLinks.classList.remove("nav-open");
+      mobileNav.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
     });
   });
 
   // Verwijder nav-open als scherm groter wordt dan 768px
   window.addEventListener("resize", () => {
     if (window.innerWidth > 767) {
-      navLinks.classList.remove("nav-open");
+      mobileNav.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
     }
   });
 }
