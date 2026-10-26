@@ -10,6 +10,12 @@ import { initAudio, getAudioLevel } from "./audio.js";
 import { animateParticles } from "./particles.js";
 import { initWheelScene, animateWheel } from "./wheel.js";
 import { initSettings, initSkillTree, initHamburger } from "./settings.js";
+import { initContact } from "./contact.js";
+import { laadProjecten } from "./projectenDatabase.js";
+
+// In je DOMContentLoaded of na initScrollReveal():
+initContact();
+laadProjecten();
 
 // =============================================s
 // DOM ELEMENTS
@@ -161,7 +167,7 @@ enterBtn.addEventListener("click", () => {
 // =============================================
 function initScrollReveal() {
   const revealElements = document.querySelectorAll(
-    ".reveal, .reveal-left, .reveal-right"
+    ".reveal, .reveal-left, .reveal-right",
   );
 
   const observer = new IntersectionObserver(
@@ -174,7 +180,7 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
   );
 
   revealElements.forEach((el) => {
@@ -199,5 +205,3 @@ function animate() {
 }
 
 animate();
-
-

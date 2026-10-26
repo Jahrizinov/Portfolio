@@ -1563,3 +1563,16 @@ input:checked + .toggle-slider::before {
     opacity: 1;
   }
 }
+
+.mobile-menu {
+  display: none;
+  padding: 1rem 1.5rem;
+}
+.mobile-menu.open {
+  display: block;
+}
+.mobile-menu a {
+  display: block;
+  padding: 0.5rem 0;
+  text-decoration: none;
+}

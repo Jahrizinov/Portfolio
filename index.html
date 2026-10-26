@@ -185,25 +185,38 @@
     </div>
 
     <!-- Navbar -->
-    <nav id="main-nav" class="main-nav hidden">
-      <div class="container-fluid px-4 d-flex align-items-center justify-content-between" style="height:60px; max-width:1200px; margin:0 auto;">
-        <a href="#hero" class="nav-brand d-flex align-items-center gap-2 text-decoration-none">
-          <img src="/img/logo%20van%20portfolio.jpg" alt="Portfolio logo" class="brand-logo rounded-circle" />
-          <span class="brand-text">JAHRIZIÑO DESIGN</span>
-        </a>
-        <ul class="nav-links d-none d-md-flex list-unstyled mb-0 align-items-center gap-4">
-          <li><a href="#hero" class="nav-link">Home</a></li>
-          <li><a href="overmij.html" class="nav-link">Over mij</a></li>
-          <!-- <li><a href="#skilltree" class="nav-link">Vaardigheden</a></li> -->
-          <li><a href="#projects" class="nav-link">Projecten</a></li>
-          <li><a href="#goals" class="nav-link">Doelen</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <button class="hamburger d-flex d-md-none" id="hamburger">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
+<nav id="main-nav" class="main-nav">
+  <div class="container-fluid px-4 d-flex align-items-center justify-content-between"
+       style="height:60px; max-width:1200px; margin:0 auto;">
+
+    <a href="index.html#hero" class="nav-brand d-flex align-items-center gap-2 text-decoration-none">
+      <img src="img/logo-portfolio.jpg" alt="Portfolio logo" class="brand-logo rounded-circle" />
+      <span class="brand-text">JAHRIZIÑO DESIGN</span>
+    </a>
+
+    <ul class="nav-links d-none d-md-flex list-unstyled mb-0 align-items-center gap-4">
+      <li><a href="index.html#hero" class="nav-item-link">Home</a></li>
+      <li><a href="overmij.html" class="nav-item-link">Over mij</a></li>
+      <li><a href="projecten.html" class="nav-item-link">Projecten</a></li>
+      <li><a href="index.html#goals" class="nav-item-link">Doelen</a></li>
+      <li><a href="index.html#contact" class="nav-item-link">Contact</a></li>
+    </ul>
+
+    <button type="button" class="hamburger d-flex d-md-none" id="hamburger"
+            aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- mobiel menu -->
+  <ul id="mobile-menu" class="mobile-menu list-unstyled d-md-none">
+    <li><a href="index.html#hero">Home</a></li>
+    <li><a href="overmij.html">Over mij</a></li>
+    <li><a href="projecten.html">Projecten</a></li>
+    <li><a href="index.html#goals">Doelen</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
 
     <!-- Canvas Background -->
     <canvas id="vfx-canvas"></canvas>
@@ -602,6 +615,63 @@
           </div>
         </div>
       </section>
+
+      <!-- Contact Section -->
+<section id="contact" class="contact-section reveal">
+  <div class="section-container">
+    <div class="section-tag">// CONTACT</div>
+    <h2 class="section-title">NEEM CONTACT OP</h2>
+    <p class="section-sub">
+      Heb je een project in gedachten of wil je samenwerken? Stuur me een bericht.
+    </p>
+
+    <div class="contact-form-wrapper">
+      <div class="form-field">
+        <label class="field-label" for="naam">NAAM</label>
+        <input
+          type="text"
+          id="naam"
+          class="field-input"
+          placeholder="Jouw naam"
+        />
+      </div>
+
+      <div class="form-field">
+        <label class="field-label" for="email">EMAIL</label>
+        <input
+          type="email"
+          id="email"
+          class="field-input"
+          placeholder="jouw@email.com"
+        />
+      </div>
+
+      <div class="form-field">
+        <label class="field-label" for="bericht">BERICHT</label>
+        <textarea
+          id="bericht"
+          class="field-input field-textarea"
+          placeholder="Jouw bericht..."
+        ></textarea>
+      </div>
+
+      <button class="submit-btn">
+        VERSTUUR BERICHT
+      </button>
+
+      <div id="form-status" style="display:none; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.15em; margin-top: 10px;"></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
 
     </main>
 
