@@ -5,6 +5,7 @@ import * as THREE from "three";
 
 let particles, particleMaterial;
 export let particlesEnabled = true;
+let activeTheme = null;
 
 const bgCanvas = document.getElementById("vfx-canvas");
 const bgScene = new THREE.Scene();
@@ -44,7 +45,7 @@ particleGeometry.setAttribute(
 );
 
 particleMaterial = new THREE.PointsMaterial({
-  color: 0xcc0000,
+  color: 0x7b4fd4,
   size: 0.02,
   transparent: true,
   opacity: 0.5,
@@ -76,6 +77,13 @@ export function setParticlesEnabled(enabled) {
 
 export function animateParticles(audioLevel) {
   if (!particlesEnabled) return;
+
+  const theme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+  if (theme !== activeTheme) {
+    bgRenderer.setClearColor(theme === "light" ? 0xf5f2fb : 0x1a1a1a, 1);
+    particleMaterial.color.set(theme === "light" ? 0x5a32a8 : 0x7b4fd4);
+    activeTheme = theme;
+  }
 
   particles.rotation.y += 0.001 + audioLevel * 0.005;
   particles.rotation.x += 0.0005;

@@ -33,6 +33,33 @@ html {
   --font-mono: "Share Tech Mono", monospace;
 }
 
+[data-theme="light"] {
+  --purple: #6d3fc4;
+  --purple-bright: #7c3aed;
+  --purple-glow: rgba(109, 63, 196, 0.16);
+  --purple-dim: rgba(109, 63, 196, 0.08);
+  --purple-mid: #6d3fc4;
+  --purple-dark: #6b4fa8;
+  --purple-deep: #ddd2ef;
+  --bg-page: #f5f2fb;
+  --bg-card: #ffffff;
+  --red: var(--purple);
+  --red-bright: var(--purple-bright);
+  --red-glow: var(--purple-glow);
+  --red-dim: var(--purple-dim);
+  --black: #3b2a63;
+  --black-deep: var(--bg-page);
+  --black-card: var(--bg-card);
+  --black-surface: var(--bg-card);
+  --white: #3b2a63;
+  --gray: #6b4fa8;
+  --gray-dim: #ddd2ef;
+  --nav-bg: rgba(245, 242, 251, 0.9);
+  --nav-bg-solid: rgba(245, 242, 251, 0.97);
+  --nav-border: rgba(109, 63, 196, 0.18);
+  --nav-link: #3b2a63;
+}
+
 *,
 *::before,
 *::after {
@@ -47,7 +74,7 @@ html {
 
 body {
   background: var(--bg-page);
-  color: #f0f0f0;
+  color: var(--white);
   font-family: var(--font-body);
   overflow-x: hidden;
   cursor: crosshair;
@@ -335,9 +362,9 @@ input:checked + .toggle-slider::before {
   right: 0;
   z-index: 999;
   height: 60px;
-  background: rgba(7, 5, 15, 0.9);
+  background: var(--nav-bg, rgba(7, 5, 15, 0.9));
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(168, 125, 232, 0.2);
+  border-bottom: 1px solid var(--nav-border, rgba(168, 125, 232, 0.2));
 }
 
 /* .nav-inner replaced by Bootstrap: container-fluid + d-flex align-items-center justify-content-between */
@@ -368,7 +395,7 @@ input:checked + .toggle-slider::before {
 .nav-link {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: #b8a8d8 !important;
+  color: var(--nav-link, #b8a8d8) !important;
   text-decoration: none;
   letter-spacing: 0.1em;
   position: relative;
@@ -395,6 +422,32 @@ input:checked + .toggle-slider::before {
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+}
+
+.theme-toggle {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--purple-mid);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--purple);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--purple-bright);
+  background: var(--purple-dim);
+  color: var(--purple-bright);
+}
+
+.theme-toggle i {
+  font-size: 15px;
+  line-height: 1;
 }
 
 .nav-highlight {
@@ -440,8 +493,8 @@ input:checked + .toggle-slider::before {
   right: 0;
   min-width: 180px;
   z-index: 200;
-  background: rgba(7, 5, 15, 0.97);
-  border: 1px solid rgba(168, 125, 232, 0.3);
+  background: var(--nav-bg-solid, rgba(7, 5, 15, 0.97));
+  border: 1px solid var(--nav-border, rgba(168, 125, 232, 0.3));
   padding: 20px;
   gap: 15px;
 }
