@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
       try {
+        const themes = ["dark", "dark-gray", "gray", "light-gray", "light"];
         const savedTheme = localStorage.getItem("theme");
-        document.documentElement.dataset.theme =
-          savedTheme === "light" || savedTheme === "dark"
-            ? savedTheme
-            : window.matchMedia("(prefers-color-scheme: light)").matches
-              ? "light"
-              : "dark";
-      } catch {
-        document.documentElement.dataset.theme =
-          window.matchMedia("(prefers-color-scheme: light)").matches
+        document.documentElement.dataset.theme = themes.includes(savedTheme)
+          ? savedTheme
+          : window.matchMedia("(prefers-color-scheme: light)").matches
             ? "light"
             : "dark";
+      } catch {
+        document.documentElement.dataset.theme =
+          window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
       }
     </script>
     <title>Over Mij — Portfolio Jahriziño</title>
@@ -80,9 +78,11 @@
           <li><a href="doelen.html" class="nav-link">Doelen</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
           <li>
-            <button class="theme-toggle" type="button" aria-label="Wissel thema">
-              <i class="bi bi-sun" aria-hidden="true"></i>
-            </button>
+            <label class="theme-control">
+              <span class="theme-caption">Donker</span>
+              <input class="theme-slider" type="range" min="0" max="4" step="1" value="0" aria-label="Thema: donker, donkergrijs, grijs, lichtgrijs, wit" />
+              <span class="theme-caption">Wit</span>
+            </label>
           </li>
         </ul>
 
@@ -106,9 +106,11 @@
         <li><a href="doelen.html" class="nav-link">Doelen</a></li>
         <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         <li>
-          <button class="theme-toggle" type="button" aria-label="Wissel thema">
-            <i class="bi bi-sun" aria-hidden="true"></i>
-          </button>
+          <label class="theme-control">
+            <span class="theme-caption">Donker</span>
+            <input class="theme-slider" type="range" min="0" max="4" step="1" value="0" aria-label="Thema: donker, donkergrijs, grijs, lichtgrijs, wit" />
+            <span class="theme-caption">Wit</span>
+          </label>
         </li>
       </ul>
     </nav>

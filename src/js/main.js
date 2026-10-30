@@ -3,31 +3,18 @@
 // =============================================
 import "../css/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import * as bootstrap from "bootstrap";
-import * as THREE from "three";
 
-import { initAudio, getAudioLevel } from "./audio.js";
 import { animateParticles } from "./particles.js";
-import { initWheelScene, animateWheel } from "./wheel.js";
-import { initSettings, initSkillTree, initHamburger } from "./settings.js";
-import { initContact } from "./contact.js";
-import { laadProjecten } from "./projectenDatabase.js";
-
-// In je DOMContentLoaded of na initScrollReveal():
-initContact();
-laadProjecten();
+import { initSkillTree, initHamburger } from "./settings.js";
 
 // =============================================s
 // DOM ELEMENTS
 // =============================================
-const settingsBar = document.getElementById("settings-bar");
 const enterBtn = document.getElementById("enterBtn");
 const domainOverlay = document.getElementById("domain-warning");
 const mainContent = document.getElementById("main-content");
 const mainNav = document.getElementById("main-nav");
 const mainFooter = document.getElementById("main-footer");
-// Null-safe: settings sidebar is uitgecommentarieerd
-
 // =============================================
 // ON DOM READY
 // =============================================
@@ -41,10 +28,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const text = document.querySelector(".domain-text");
   if (text)
     text.textContent =
-      "Deze site toont mijn werk in webdesign, 3D en game design. Voor de beste ervaring: geluid aan en ontdek de interactieve elementen.";
+      "Deze site toont mijn werk in webdesign, 3D en game design. Ontdek mijn projecten en interactieve ontwerpen.";
 
   const badge = document.querySelector(".domain-warning-badge");
-  if (badge) badge.textContent = "⚠ VISUELE EFFECTEN & AUDIO";
+  if (badge) badge.textContent = "⚠ VISUELE EFFECTEN & INTERACTIE";
 
   const btn = document.querySelector("#enterBtn span");
   if (btn) btn.textContent = "Start portfolio";
@@ -59,17 +46,11 @@ window.addEventListener("DOMContentLoaded", () => {
     mainNav.classList.add("visible");
     mainFooter.classList.remove("hidden");
     mainFooter.classList.add("visible");
-    settingsBar.classList.remove("hidden");
-    settingsBar.classList.add("visible");
-
-    initAudio();
-    initWheelScene();
     initScrollReveal();
   }
   // ────────────────────────────────────────────────────────────
 
   markProjectPlaceholders();
-  initSettings();
   initSkillTree();
   initHamburger();
 });
@@ -147,11 +128,6 @@ enterBtn.addEventListener("click", () => {
             mainNav.classList.add("visible");
             mainFooter.classList.remove("hidden");
             mainFooter.classList.add("visible");
-            settingsBar.classList.remove("hidden");
-            settingsBar.classList.add("visible");
-
-            initAudio();
-            initWheelScene();
             initScrollReveal();
           }, 800);
         }, 3000);
@@ -192,16 +168,9 @@ function initScrollReveal() {
 // =============================================
 // MAIN ANIMATION LOOP
 // =============================================
-const clock = new THREE.Clock();
-
 function animate() {
   requestAnimationFrame(animate);
-
-  const delta = clock.getDelta();
-  const audioLevel = getAudioLevel();
-
-  animateParticles(audioLevel);
-  animateWheel(delta, audioLevel);
+  animateParticles();
 }
 
 animate();

@@ -4,7 +4,6 @@
 import * as THREE from "three";
 
 let particles, particleMaterial;
-export let particlesEnabled = true;
 let activeTheme = null;
 
 const bgCanvas = document.getElementById("vfx-canvas");
@@ -70,24 +69,24 @@ window.addEventListener("resize", () => {
   bgRenderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-export function setParticlesEnabled(enabled) {
-  particlesEnabled = enabled;
-  if (particles) particles.visible = enabled;
-}
-
-export function animateParticles(audioLevel) {
-  if (!particlesEnabled) return;
-
-  const theme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+export function animateParticles() {
+  const theme = document.documentElement.dataset.theme || "dark";
   if (theme !== activeTheme) {
-    bgRenderer.setClearColor(theme === "light" ? 0xf5f2fb : 0x1a1a1a, 1);
-    particleMaterial.color.set(theme === "light" ? 0x5a32a8 : 0x7b4fd4);
+    const palettes = {
+      dark: [0x1a1a1a, 0x7b4fd4],
+      "dark-gray": [0x2b2830, 0xc3a1f2],
+      gray: [0x77727f, 0x654696],
+      "light-gray": [0xc9c5cf, 0x603b98],
+      light: [0xebe7f2, 0x5a32a8],
+    };
+    const palette = palettes[theme] || palettes.dark;
+    bgRenderer.setClearColor(palette[0], 1);
+    particleMaterial.color.set(palette[1]);
     activeTheme = theme;
   }
 
-  particles.rotation.y += 0.001 + audioLevel * 0.005;
+  particles.rotation.y += 0.001;
   particles.rotation.x += 0.0005;
-  particleMaterial.opacity = 0.4 + audioLevel * 0.4;
 
   bgCamera.position.x += (targetX - bgCamera.position.x) * 0.05;
   bgCamera.position.y += (-targetY - bgCamera.position.y) * 0.05;

@@ -1,59 +1,6 @@
 // =============================================
 // SETTINGS SIDEBAR
 // =============================================
-import { resumeAudio, pauseAudio, setVolume } from "./audio.js";
-import { setParticlesEnabled } from "./particles.js";
-
-const settingsBar = document.getElementById("settings-bar");
-const settingsToggleBtn = document.getElementById("settings-toggle-btn");
-const audioToggle = document.getElementById("audioToggle");
-const particleToggle = document.getElementById("particleToggle");
-const volumeSlider = document.getElementById("volumeSlider");
-
-export function initSettings() {
-  // Sidebar toggle
-  if (settingsToggleBtn && settingsBar) {
-    settingsToggleBtn.addEventListener("click", () => {
-      const isVisible = settingsBar.classList.contains("visible");
-      if (isVisible) {
-        settingsBar.classList.remove("visible");
-      } else {
-        settingsBar.classList.add("visible");
-        settingsBar.classList.remove("hidden");
-      }
-    });
-
-    document.addEventListener("click", (e) => {
-      if (
-        settingsBar.classList.contains("visible") &&
-        !settingsBar.contains(e.target) &&
-        e.target !== settingsToggleBtn
-      ) {
-        settingsBar.classList.remove("visible");
-      }
-    });
-  }
-
-  // Audio toggle
-  audioToggle?.addEventListener("change", () => {
-    if (audioToggle.checked) {
-      resumeAudio();
-    } else {
-      pauseAudio();
-    }
-  });
-
-  // Particles toggle
-  particleToggle?.addEventListener("change", () => {
-    setParticlesEnabled(particleToggle.checked);
-  });
-
-  // Volume slider
-  volumeSlider?.addEventListener("input", () => {
-    setVolume(volumeSlider.value);
-  });
-}
-
 // =============================================
 // SKILL TREE — Node click interaction
 // =============================================

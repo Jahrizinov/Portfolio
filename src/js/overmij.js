@@ -26,7 +26,8 @@ const lightPurples = ['#6d3fc4', '#5a32a8', '#4b278f', '#3d2077', '#311a61'];
 function drawParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   const t = Date.now() * 0.001;
-  const isLightTheme = document.documentElement.dataset.theme === 'light';
+  const theme = document.documentElement.dataset.theme || 'dark';
+  const lightTheme = ['gray', 'light-gray', 'light'].includes(theme);
 
   particles.forEach(p => {
     p.x += p.vx;
@@ -38,7 +39,7 @@ function drawParticles() {
 
     const flicker = p.o * (0.7 + 0.3 * Math.sin(t * 1.5 + p.pulse));
     ctx.globalAlpha = flicker;
-    const particleColors = isLightTheme ? lightPurples : purples;
+    const particleColors = lightTheme ? lightPurples : purples;
     ctx.fillStyle   = particleColors[Math.floor(p.r * 2) % particleColors.length];
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
@@ -47,7 +48,7 @@ function drawParticles() {
 
   // Connectielijnen
   ctx.globalAlpha = 0.04;
-  ctx.strokeStyle = isLightTheme ? '#5a32a8' : '#7b4fd4';
+  ctx.strokeStyle = lightTheme ? '#5a32a8' : '#7b4fd4';
   ctx.lineWidth   = 0.5;
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
